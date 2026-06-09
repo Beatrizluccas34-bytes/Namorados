@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       RESET & VARIABLES
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:      #ffffff;
+      --off-white:  #fdf9f6;
+      --blush:      #f7d6d0;
+      --rose:       #e8a0a0;
+      --deep-rose:  #c46b6b;
+      --bege:       #f0e8df;
+      --bege-dark:  #d9cfc5;
+      --text-main:  #3a2e2e;
+      --text-soft:  #7a6060;
+      --gold:       #c9a96e;
+
+      --ff-serif: 'Playfair Display', Georgia, serif;
+      --ff-sans:  'Poppins', sans-serif;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-sans);
+      background: var(--white);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* =============================================
+       SECTION BASE
+    ============================================= */
+    section {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px;
+    }
+
+    /* =============================================
+       SECTION 1 — ABERTURA
+    ============================================= */
+    #abertura {
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    /* Pétala background */
+    #abertura::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(247,214,208,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(240,232,223,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .abertura-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      text-align: center;
+      animation: fadeUp 1.2s var(--ease-out-expo) both;
+    }
+
+    /* Coração animado */
+    .heart-icon {
+      width: 72px;
+      height: 72px;
+      position: relative;
+      animation: heartbeat 2.4s ease-in-out infinite;
+    }
+    .heart-icon svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 4px 16px rgba(196,107,107,0.25));
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.12); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.08); }
+      56%       { transform: scale(1); }
+    }
+
+    .abertura-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    .abertura-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-soft);
+      letter-spacing: 0.04em;
+    }
+
+    /* Linha decorativa */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose), transparent);
+      margin: 4px auto;
+    }
+
+    .btn-primary {
+      margin-top: 8px;
+      padding: 16px 48px;
+      background: var(--text-main);
+      color: var(--white);
+      font-family: var(--ff-sans);
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--deep-rose);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+    .btn-primary:hover::after { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.4;
+      animation: float 3s ease-in-out infinite;
+    }
+    .scroll-hint span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    .scroll-hint svg { width: 16px; opacity: 0.6; }
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* =============================================
+       SECTION 2 — CARTA
+    ============================================= */
+    #carta {
+      background: var(--off-white);
+    }
+    #carta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 20% 30%, rgba(247,214,208,0.3) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 85% 75%, rgba(240,232,223,0.5) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .carta-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* Ornamento topo */
+    .carta-ornament {
+      text-align: center;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: none;
+    }
+    .carta-ornament .ornament-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--rose);
+      font-size: 1.2rem;
+    }
+    .ornament-bar {
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rose));
+    }
+    .ornament-bar.right {
+      background: linear-gradient(90deg, var(--rose), transparent);
+    }
+
+    .carta-card {
+      background: var(--white);
+      border: 1px solid rgba(232,160,160,0.2);
+      padding: 52px 56px;
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.02),
+        0 8px 32px rgba(196,107,107,0.06),
+        0 32px 80px rgba(0,0,0,0.04);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+    .carta-card.visible { opacity: 1; transform: translateY(0); }
+
+    /* Corner decorations */
+    .carta-card::before,
+    .carta-card::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: var(--rose);
+      border-style: solid;
+      opacity: 0.4;
+    }
+    .carta-card::before { top: 16px; left: 16px; border-width: 1px 0 0 1px; }
+    .carta-card::after  { bottom: 16px; right: 16px; border-width: 0 1px 1px 0; }
+
+    .carta-greeting {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--deep-rose);
+      margin-bottom: 24px;
+    }
+
+    .carta-text {
+      font-size: clamp(0.88rem, 2.2vw, 0.98rem);
+      font-weight: 300;
+      line-height: 1.95;
+      color: var(--text-main);
+      white-space: pre-line;
+    }
+
+    .carta-assinatura {
+      margin-top: 32px;
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--deep-rose);
+      text-align: right;
+    }
+
+    .carta-actions {
+      margin-top: 40px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s 0.3s var(--ease-out-expo), transform 0.7s 0.3s var(--ease-out-expo);
+    }
+    .carta-actions.visible { opacity: 1; transform: translateY(0); }
+
+    .btn-soft {
+      padding: 14px 44px;
+      background: transparent;
+      color: var(--text-main);
+      font-family: var(--ff-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--bege-dark);
+      cursor: pointer;
+      transition: all 0.35s ease;
+    }
+    .btn-soft:hover {
+      background: var(--text-main);
+      color: var(--white);
+      border-color: var(--text-main);
+    }
+
+    /* =============================================
+       SECTION 3 — NOSSA HISTÓRIA
+    ============================================= */
+    #historia {
+      background: var(--white);
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .historia-header {
+      text-align: center;
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+    .historia-header.visible { opacity: 1; transform: translateY(0); }
+
+    .historia-header h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+    .historia-header p {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 300;
+      color: var(--text-soft);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Carrossel */
+    .carousel-wrap {
+      width: 100%;
+      max-width: 760px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s 0.15s var(--ease-out-expo), transform 0.9s 0.15s var(--ease-out-expo);
+    }
+    .carousel-wrap.visible { opacity: 1; transform: translateY(0); }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--bege);
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .carousel-slide.active { opacity: 1; }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder when image not found */
+    .carousel-slide .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bege), var(--blush));
+      gap: 12px;
+    }
+    .carousel-slide .placeholder span {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-soft);
+    }
+    .placeholder-heart { font-size: 2.5rem; opacity: 0.4; }
+
+    /* Arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .carousel-btn:hover { background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .carousel-btn.prev { left: 16px; }
+    .carousel-btn.next { right: 16px; }
+    .carousel-btn svg { width: 18px; stroke: var(--text-main); }
+
+    /* Dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--bege-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: var(--deep-rose);
+      width: 20px;
+      border-radius: 3px;
+    }
+
+    /* Contador */
+    .counter-wrap {
+      margin-top: 56px;
+      text-align: center;
+      width: 100%;
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s 0.3s var(--ease-out-expo), transform 0.8s 0.3s var(--ease-out-expo);
+    }
+    .counter-wrap.visible { opacity: 1; transform: translateY(0); }
+
+    .counter-label {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+    }
+
+    .counter-grid {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .counter-item {
+      flex: 1;
+      min-width: 80px;
+      max-width: 120px;
+      padding: 20px 12px;
+      position: relative;
+    }
+    .counter-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: var(--bege-dark);
+    }
+
+    .counter-value {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--text-main);
+      line-height: 1;
+      display: block;
+    }
+    .counter-unit {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    /* Player de áudio */
+    .player-wrap {
+      margin-top: 48px;
+      width: 100%;
+      max-width: 420px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s 0.45s var(--ease-out-expo), transform 0.8s 0.45s var(--ease-out-expo);
+    }
+    .player-wrap.visible { opacity: 1; transform: translateY(0); }
+
+    .player-label {
+      text-align: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+    }
+
+    .player-card {
+      background: var(--off-white);
+      border: 1px solid rgba(232,160,160,0.25);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .player-btn {
+      width: 42px;
+      height: 42px;
+      min-width: 42px;
+      border-radius: 50%;
+      background: var(--text-main);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .player-btn:hover { background: var(--deep-rose); }
+    .player-btn svg { width: 14px; fill: var(--white); }
+
+    .player-info { flex: 1; overflow: hidden; }
+    .player-title {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .player-sub {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .player-progress {
+      width: 100%;
+      height: 2px;
+      background: var(--bege-dark);
+      margin-top: 12px;
+      cursor: pointer;
+      position: relative;
+    }
+    .player-bar {
+      height: 100%;
+      background: var(--deep-rose);
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* =============================================
+       SECTION 4 — FINAL
+    ============================================= */
+    #final {
+      background: var(--white);
+      text-align: center;
+      overflow: hidden;
+    }
+    #final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(247,214,208,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      max-width: 560px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo);
+    }
+    .final-inner.visible { opacity: 1; transform: translateY(0); }
+
+    .final-ornament { font-size: 2rem; opacity: 0.6; }
+
+    .final-message {
+      font-family: var(--ff-serif);
+      font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    .final-sub {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-soft);
+      letter-spacing: 0.05em;
+    }
+
+    .btn-ghost {
+      margin-top: 8px;
+      padding: 12px 36px;
+      background: transparent;
+      color: var(--text-soft);
+      font-family: var(--ff-sans);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--bege-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-ghost:hover {
+      border-color: var(--text-soft);
+      color: var(--text-main);
+    }
+
+    /* =============================================
+       ANIMAÇÕES GERAIS
+    ============================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 640px) {
+      .carta-card { padding: 36px 28px; }
+      .carta-card::before,
+      .carta-card::after { display: none; }
+      .counter-item { min-width: 64px; padding: 16px 8px; }
+      .carousel { aspect-ratio: 3/4; }
+      .carousel-btn { width: 36px; height: 36px; }
+    }
+
+    @media (max-width: 400px) {
+      .abertura-title { font-size: 1.75rem; }
+      .btn-primary { padding: 14px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       SECTION 1 — ABERTURA
+  =========================================== -->
+  <section id="abertura">
+    <div class="abertura-inner">
+
+      <!-- Coração animado em SVG -->
+      <div class="heart-icon">
+        <svg viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 82 C50 82 8 54 8 28 C8 15 17 6 28 6 C36 6 43 11 50 19 C57 11 64 6 72 6 C83 6 92 15 92 28 C92 54 50 82 50 82Z"
+            fill="none" stroke="#e8a0a0" stroke-width="2.5" opacity="0.5"/>
+          <path d="M50 76 C50 76 14 51 14 29 C14 18 22 10 32 10 C39 10 45 15 50 22 C55 15 61 10 68 10 C78 10 86 18 86 29 C86 51 50 76 50 76Z"
+            fill="#f7d6d0"/>
+        </svg>
+      </div>
+
+      <div>
+        <h1 class="abertura-title">Feliz Dia dos Namorados, Vida ❤️</h1>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="abertura-sub">Preparei uma surpresa para você.</p>
+
+      <button class="btn-primary" id="btn-abrir">
+        <span>Abrir Surpresa</span>
+      </button>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <span>Role</span>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Áudio principal (auto-play ao clicar) -->
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 2 — CARTA
+  =========================================== -->
+  <section id="carta">
+    <div class="carta-wrap">
+
+      <div class="carta-ornament" id="carta-ornament">
+        <div class="ornament-line">
+          <span class="ornament-bar"></span>
+          <span>❤</span>
+          <span class="ornament-bar right"></span>
+        </div>
+      </div>
+
+      <div class="carta-card" id="carta-card">
+        <p class="carta-greeting">Meu amor,</p>
+        <p class="carta-text">Nosso primeiro dia dos namorados, que esta data possa se repetir por muitos anos e até o último dia de nossas vidas.
+
+Eu já te falei isso mil vezes, mas nunca irei me cansar de dizer.. eu agradeço a Deus por ter colocado esse homem incrível ao meu lado, que me respeita, que cuida de mim (mesmo eu sendo chata kk), esse homem que não mede esforço para fazer tudo por mim e não falo por coisas materiais e sim por TUDO.🥹❤️
+
+Eu não demonstro tanto como você, mas quero que saiba que EU TE AMO INFINITAMENTE e prometo sempre dar meu melhor. ❤️
+
+Feliz dia dos namorados! ❤️</p>
+        <p class="carta-assinatura">Com todo o meu amor ❤️</p>
+      </div>
+
+      <div class="carta-actions" id="carta-actions">
+        <button class="btn-soft" id="btn-continuar">Continuar ❤️</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 3 — NOSSA HISTÓRIA
+  =========================================== -->
+  <section id="historia">
+
+    <div class="historia-header" id="historia-header">
+      <h2>Nossa História ❤️</h2>
+      <p>Cada momento ao seu lado se tornou uma das minhas lembranças favoritas.</p>
+    </div>
+
+    <!-- Carrossel -->
+    <div class="carousel-wrap" id="carousel-wrap">
+      <div class="carousel" id="carousel">
+
+        <!-- Slides: as imagens serão tentadas; se não existirem, mostra placeholder -->
+        <div class="carousel-slide active" data-index="0">
+          <img src="imagens/foto1.jpeg" alt="Foto 1" onerror="this.parentElement.innerHTML=placeholderHTML(1)" />
+        </div>
+        <div class="carousel-slide" data-index="1">
+          <img src="imagens/foto2.jpeg" alt="Foto 2" onerror="this.parentElement.innerHTML=placeholderHTML(2)" />
+        </div>
+        <div class="carousel-slide" data-index="2">
+          <img src="imagens/foto3.jpeg" alt="Foto 3" onerror="this.parentElement.innerHTML=placeholderHTML(3)" />
+        </div>
+        <div class="carousel-slide" data-index="3">
+          <img src="imagens/foto4.jpeg" alt="Foto 4" onerror="this.parentElement.innerHTML=placeholderHTML(4)" />
+        </div>
+        <div class="carousel-slide" data-index="4">
+          <img src="imagens/foto5.jpeg" alt="Foto 5" onerror="this.parentElement.innerHTML=placeholderHTML(5)" />
+        </div>
+        <div class="carousel-slide" data-index="5">
+          <img src="imagens/foto6.jpeg" alt="Foto 6" onerror="this.parentElement.innerHTML=placeholderHTML(6)" />
+        </div>
+        <div class="carousel-slide" data-index="6">
+          <img src="imagens/foto7.jpeg" alt="Foto 7" onerror="this.parentElement.innerHTML=placeholderHTML(7)" />
+        </div>
+        <div class="carousel-slide" data-index="7">
+          <img src="imagens/foto8.jpeg" alt="Foto 8" onerror="this.parentElement.innerHTML=placeholderHTML(8)" />
+        </div>
+        <div class="carousel-slide" data-index="8">
+          <img src="imagens/foto9.jpeg" alt="Foto 9" onerror="this.parentElement.innerHTML=placeholderHTML(9)" />
+        </div>
+        <div class="carousel-slide" data-index="9">
+          <img src="imagens/foto10.jpeg" alt="Foto 10" onerror="this.parentElement.innerHTML=placeholderHTML(10)" />
+        </div>
+
+        <!-- Botões de navegação -->
+        <button class="carousel-btn prev" id="carousel-prev" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button class="carousel-btn next" id="carousel-next" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Indicadores -->
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+
+    <!-- Contador de tempo -->
+    <div class="counter-wrap" id="counter-wrap">
+      <p class="counter-label">Juntos há</p>
+      <div class="counter-grid">
+        <div class="counter-item">
+          <span class="counter-value" id="cnt-meses">0</span>
+          <span class="counter-unit">Meses</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-value" id="cnt-dias">0</span>
+          <span class="counter-unit">Dias</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-value" id="cnt-horas">0</span>
+          <span class="counter-unit">Horas</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-value" id="cnt-minutos">0</span>
+          <span class="counter-unit">Minutos</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-value" id="cnt-segundos">0</span>
+          <span class="counter-unit">Segundos</span>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 4 — FINAL
+  =========================================== -->
+  <section id="final">
+    <div class="final-inner" id="final-inner">
+      <div class="final-ornament">❤️</div>
+      <p class="final-message">
+        "Obrigado por fazer da minha vida um lugar mais feliz.<br/>
+        Que o nosso contador nunca pare de crescer.<br/>
+        Eu te amo infinitamente."
+      </p>
+      <div class="divider"></div>
+      <p class="final-sub">❤️</p>
+      <button class="btn-ghost" id="btn-rever">Rever nossa história ❤️</button>
+    </div>
+  </section>
+
+
+  <script>
+    /* ============================================
+       PLACEHOLDER PARA FOTOS
+    ============================================= */
+    function placeholderHTML(n) {
+      return `<div class="placeholder">
+        <span class="placeholder-heart">♡</span>
+        <span>Foto ${n}</span>
+      </div>`;
+    }
+
+    /* ============================================
+       BOTÃO "ABRIR SURPRESA"
+    ============================================= */
+    document.getElementById('btn-abrir').addEventListener('click', function () {
+      // Scroll suave para carta
+      document.getElementById('carta').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ============================================
+       BOTÃO "CONTINUAR"
+    ============================================= */
+    document.getElementById('btn-continuar').addEventListener('click', function () {
+      document.getElementById('historia').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ============================================
+       BOTÃO "REVER"
+    ============================================= */
+    document.getElementById('btn-rever').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ============================================
+       INTERSECTION OBSERVER — ANIMAÇÕES AO SCROLL
+    ============================================= */
+    const observerOptions = { threshold: 0.15 };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Ornamento da carta
+          if (entry.target.id === 'carta-card') {
+            document.getElementById('carta-ornament').style.opacity = '1';
+            document.getElementById('carta-ornament').style.animation = 'fadeUp 0.7s ease both';
+          }
+        }
+      });
+    }, observerOptions);
+
+    ['carta-card', 'carta-actions', 'historia-header',
+     'carousel-wrap', 'counter-wrap', 'player-wrap', 'final-inner']
+      .forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+
+    /* ============================================
+       CARROSSEL
+    ============================================= */
+    const slides    = document.querySelectorAll('.carousel-slide');
+    const dotsWrap  = document.getElementById('carousel-dots');
+    const totalSlides = slides.length;
+    let currentSlide  = 0;
+    let autoPlayTimer = null;
+
+    // Criar dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    function goTo(index) {
+      slides[currentSlide].classList.remove('active');
+      dotsWrap.children[currentSlide].classList.remove('active');
+      currentSlide = (index + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+      dotsWrap.children[currentSlide].classList.add('active');
+    }
+
+    function next() { goTo(currentSlide + 1); }
+    function prev() { goTo(currentSlide - 1); }
+
+    document.getElementById('carousel-next').addEventListener('click', () => {
+      clearInterval(autoPlayTimer);
+      next();
+      startAutoPlay();
+    });
+    document.getElementById('carousel-prev').addEventListener('click', () => {
+      clearInterval(autoPlayTimer);
+      prev();
+      startAutoPlay();
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    document.getElementById('carousel').addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    document.getElementById('carousel').addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 40) {
+        clearInterval(autoPlayTimer);
+        diff > 0 ? next() : prev();
+        startAutoPlay();
+      }
+    });
+
+    function startAutoPlay() {
+      autoPlayTimer = setInterval(next, 4000);
+    }
+    startAutoPlay();
+
+    /* ============================================
+       CONTADOR DE TEMPO
+    ============================================= */
+    const startDate = new Date('2025-08-30T00:00:00');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCounter() {
+      const now  = new Date();
+      let diff   = now - startDate; // ms
+
+      if (diff < 0) diff = 0;
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const seconds      = totalSeconds % 60;
+      const totalMinutes = Math.floor(totalSeconds / 60);
+      const minutes      = totalMinutes % 60;
+      const totalHours   = Math.floor(totalMinutes / 60);
+      const hours        = totalHours % 24;
+      const totalDays    = Math.floor(totalHours / 24);
+
+      // Cálculo de meses completos
+      let meses = (now.getFullYear() - startDate.getFullYear()) * 12
+                + (now.getMonth() - startDate.getMonth());
+      if (now.getDate() < startDate.getDate()) meses--;
+      if (meses < 0) meses = 0;
+
+      // Dias restantes após meses completos
+      const refDate = new Date(startDate);
+      refDate.setMonth(refDate.getMonth() + meses);
+      const diffDays = Math.floor((now - refDate) / (1000 * 60 * 60 * 24));
+
+      document.getElementById('cnt-meses').textContent   = pad(meses);
+      document.getElementById('cnt-dias').textContent    = pad(diffDays);
+      document.getElementById('cnt-horas').textContent   = pad(hours);
+      document.getElementById('cnt-minutos').textContent = pad(minutes);
+      document.getElementById('cnt-segundos').textContent = pad(seconds);
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    
